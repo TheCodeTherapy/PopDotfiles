@@ -1,0 +1,8 @@
+#!/bin/sh
+WNAME="irssi"
+if ! tmux -L default attach-session -t ${WNAME}; then
+    tmux new-session -d -s ${WNAME} 'irssi'
+    tmux split-window -t ${WNAME} -h -l 20 'cat ~/.irssi/nicklistfifo'
+    "${0}"
+fi
+
