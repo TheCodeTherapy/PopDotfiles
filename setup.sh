@@ -3,7 +3,7 @@ set -eu -o pipefail
 
 ME="/home/$(whoami)"
 CFG="${ME}/.config"
-DOTDIR="${ME}/pop-dotfiles"
+DOTDIR="${ME}/PopDotfiles"
 BINDIR="${DOTDIR}/bin"
 
 declare -rA COLORS=(

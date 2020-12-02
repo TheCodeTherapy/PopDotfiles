@@ -1,4 +1,4 @@
-# pop-dotfiles
+# PopDotfiles
 
 Dotfiles and configuration script for the post-install process of Pop OS.
 
