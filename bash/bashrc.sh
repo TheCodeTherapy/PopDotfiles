@@ -1,5 +1,5 @@
 ME="/home/$(whoami)"
-DOTDIR="$ME/pop-dotfiles"
+DOTDIR="$ME/PopDotfiles"
 
 # If not running interactively, don't do anything
 case $- in
