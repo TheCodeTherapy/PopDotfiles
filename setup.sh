@@ -151,6 +151,7 @@ while read -r p ; do print_cyan "Installing ${p}..." && sleep 2 && sudo apt inst
     tmux most neofetch lzma zip unzip tree obs-studio obs-plugins
     docker docker-compose zsh zsh-doc network-manager-openvpn
     dialog xmlstarlet cifs-utils nfs-common
+    krita kdenlive blender inkscape
 EOF
 )
 
