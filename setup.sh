@@ -164,9 +164,9 @@ install_yarn
 install_awscli
 
 # wait_key "Press any key to perform snap installs and updates..."
+# sudo apt install snapd
 # sudo snap install code --classic
 # sudo snap install skype --classic
-# sudo snap install slack --classic
 # snap refresh
 
 home_link "bash/bashrc.sh" ".bashrc"
