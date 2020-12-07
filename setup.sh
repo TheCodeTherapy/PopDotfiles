@@ -138,6 +138,15 @@ install_awscli () {
     fi
 }
 
+install_vscode () {
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+    sudo apt update
+    sudo apt upgrade && sudo apt autoclean
+    sudo apt install code
+}
+
 update_system
 
 install_msg="Installing basic packages..."
@@ -150,7 +159,7 @@ while read -r p ; do print_cyan "Installing ${p}..." && sleep 2 && sudo apt inst
     gnome-shell-extension-system-monitor gnome-shell-extension-appindicator
     tmux most neofetch lzma zip unzip tree obs-studio obs-plugins
     docker docker-compose zsh zsh-doc network-manager-openvpn
-    dialog xmlstarlet cifs-utils nfs-common
+    dialog xmlstarlet cifs-utils nfs-common lolcat
     krita kdenlive blender inkscape
 EOF
 )
