@@ -161,6 +161,7 @@ while read -r p ; do print_cyan "Installing ${p}..." && sleep 2 && sudo apt inst
     docker docker-compose zsh zsh-doc network-manager-openvpn
     dialog xmlstarlet cifs-utils nfs-common lolcat
     krita kdenlive blender inkscape network-manager-openvpn-gnome
+    cheese jstest-gtk qbittorrent
 EOF
 )
 
