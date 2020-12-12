@@ -153,6 +153,8 @@ install_msg="Installing basic packages..."
 print_cyan "${install_msg}"
 while read -r p ; do print_cyan "Installing ${p}..." && sleep 2 && sudo apt install -y $p ; done < <(cat << "EOF"
     build-essential autoconf automake cmake cmake-data pkg-config clang
+    libopenal-dev libopenal-data libavutil-dev libavcodec-dev
+    libavformat-dev libswscale-dev libjpeg-dev libarchive-dev libsfml-dev
     mlocate python3 ipython3 python3-pip python-is-python3 neovim
     libsdl2-dev libsdl2-ttf-dev libfontconfig-dev qt5-default
     gnome-tweaks mesa-utils fonts-firacode imagemagick ffmpeg vlc
@@ -184,6 +186,7 @@ home_link "bash/bashrc.sh" ".bashrc"
 home_link "bash/inputrc.sh" ".inputrc"
 home_link "tmux/tmux.conf" ".tmux.conf"
 home_link "tmux/tmux.conf.local" ".tmux.conf.local"
+
 # home_link_cfg "nvim"
 
 cat $DOTDIR/x/gterminal.conf | dconf load /org/gnome/terminal/
