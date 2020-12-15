@@ -147,25 +147,46 @@ install_vscode () {
     sudo apt install code
 }
 
-update_system
-
-install_msg="Installing basic packages..."
-print_cyan "${install_msg}"
-while read -r p ; do print_cyan "Installing ${p}..." && sleep 2 && sudo apt install -y $p ; done < <(cat << "EOF"
-    build-essential autoconf automake cmake cmake-data pkg-config clang
-    libopenal-dev libopenal-data libavutil-dev libavcodec-dev
-    libavformat-dev libswscale-dev libjpeg-dev libarchive-dev libsfml-dev
-    mlocate python3 ipython3 python3-pip python-is-python3 neovim
-    libsdl2-dev libsdl2-ttf-dev libfontconfig-dev qt5-default
-    gnome-tweaks mesa-utils fonts-firacode imagemagick ffmpeg vlc
-    gnome-shell-extension-system-monitor gnome-shell-extension-appindicator
-    tmux most neofetch lzma zip unzip tree obs-studio obs-plugins
-    docker docker-compose zsh zsh-doc network-manager-openvpn
-    dialog xmlstarlet cifs-utils nfs-common lolcat
-    krita kdenlive blender inkscape network-manager-openvpn-gnome
-    cheese jstest-gtk qbittorrent
+install_basic_packages () {
+    install_msg="Installing basic packages..."
+    print_cyan "${install_msg}"
+    while read -r p ; do print_cyan "Installing ${p}..." && sleep 2 && sudo apt install -y $p ; done < <(cat << "EOF"
+        build-essential autoconf automake cmake cmake-data pkg-config clang
+        libopenal-dev libopenal-data libavutil-dev libavcodec-dev
+        libavformat-dev libswscale-dev libjpeg-dev libarchive-dev libsfml-dev
+        mlocate python3 ipython3 python3-pip python-is-python3 neovim
+        libsdl2-dev libsdl2-ttf-dev libfontconfig-dev qt5-default
+        gnome-tweaks mesa-utils fonts-firacode imagemagick ffmpeg vlc
+        gnome-shell-extension-system-monitor gnome-shell-extension-appindicator
+        tmux most neofetch lzma zip unzip tree obs-studio obs-plugins
+        docker docker-compose zsh zsh-doc network-manager-openvpn
+        dialog xmlstarlet cifs-utils nfs-common lolcat
+        krita kdenlive blender inkscape network-manager-openvpn-gnome
+        cheese jstest-gtk qbittorrent
 EOF
 )
+}
+
+install_crossplatform_stuff () {
+    install_msg="Installing cross-platform related packages..."
+    print_cyan "${install_msg}"
+    while read -r p ; do print_cyan "Installing ${p}..." && sleep 2 && sudo apt install -y $p ; done < <(cat << "EOF"
+        libvkd3d1 libvkd3d-dev libvkd3d-utils1 mingw-w64 mingw-w64-x86-64-dev
+        libxcomposite1 libxcomposite-dev libosmesa6 libosmesa6-dev
+        libopencl-clang-dev libopencl-clang10 libpcap0.8 libpcap-dev
+        libhal1-flash libsane libsane-dev libv4l-dev v4l2loopback-source
+        v4l2loopback-utils libv4l2rds0 libgphoto2-6 libgphoto2-dev
+        libgphoto2-port12 liblcms2-2 liblcms2-dev liblcms2-utils
+        gstreamer1.0-plugins-base gstreamer1.0-plugins-good
+        gstreamer1.0-plugins-ugly oss4-dev libfaudio-dev libcapi20-dev
+        libcups2-dev libgsm1-dev libkrb5-dev libtiff5-dev libmpg123-dev
+        libgnutls28-dev libgettext-ocaml-dev libgettextpo-dev libxslt1-dev
+EOF
+)
+}
+
+update_system
+install_basic_packages
 
 sudo usermod -a -G docker $USER
 
